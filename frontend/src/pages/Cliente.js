@@ -6,8 +6,7 @@ export default function Cliente() {
     return (
         <div>
             <Title
-                title={"Cliente"}
-                text={"Cadastro de cliente"} />
+                title={"Cadastro de cliente"} />
             <Cadastro />
         </div>
     )
