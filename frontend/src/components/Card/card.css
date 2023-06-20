@@ -1,4 +1,4 @@
-.row {
+.linha {
     display: block;
     width: 75%;
     margin: auto;
@@ -6,7 +6,7 @@
     white-space: nowrap;
   }
   
-  .col {
+  .coluna {
     display: inline-block;
     width: 25%;
   }

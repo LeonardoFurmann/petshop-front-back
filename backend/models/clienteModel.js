@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
 
-const planoEnum = {
-    Prata: 'Prata',
-    Ouro: 'Ouro'
-}
-
 const clienteSchema = new mongoose.Schema({
     codigo: Number,
     nome: {
@@ -40,7 +35,7 @@ const clienteSchema = new mongoose.Schema({
         required: true
     },
     plano: {
-        type: Enum[planoEnum],
+        type: String,
         required: true
     },
     senha: {

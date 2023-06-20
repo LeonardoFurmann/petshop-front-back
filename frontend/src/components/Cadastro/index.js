@@ -134,6 +134,7 @@ export default function Cadastro() {
                                 Número do cartão:
                                 <input
                                     type="text"
+                                    className="form-control"
                                     value={numeroCartao}
                                     onChange={handleNumeroCartaoChange}
                                 />
@@ -146,7 +147,7 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label>
                                 cvc:
-                                <input type="password" value={cvc} onChange={handleCvcChange} />
+                                <input type="password" className='form-control' value={cvc} onChange={handleCvcChange} />
                             </label>
                             {cvcPassou == 0 && (
                                 <p className="warning">

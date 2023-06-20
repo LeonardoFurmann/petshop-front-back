@@ -76,9 +76,9 @@ export default function Card({searchValue}) {
           <option value="nota">Nota</option>
         </select>
       </div>
-      <div className="row">
+      <div className="linha">
         {filteredMovies.map((filme, i) => (
-          <div className="col" key={i}>
+          <div className="coluna" key={i}>
             <div className="card">
               <img
                 src={filme.poster}
