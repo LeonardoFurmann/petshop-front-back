@@ -76,7 +76,6 @@ export default function Card({searchValue}) {
           <option value="nota">Nota</option>
         </select>
       </div>
-      <h1>Categoria</h1>
       <div className="row">
         {filteredMovies.map((filme, i) => (
           <div className="col" key={i}>

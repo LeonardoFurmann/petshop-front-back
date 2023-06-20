@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
+import './Cadastro.css';
+
 
 export default function Cadastro() {
     const [nome, setNome] = useState('');
@@ -11,6 +13,31 @@ export default function Cadastro() {
     const [numeroCartao, setNumeroCartao] = useState("");
     const [cvc, setCvc] = useState("");
     const [plano, setPlano] = useState("");
+    const [numeroCartaoPassou, setNumeroCartaoPassou] = useState(0);
+    const [cvcPassou, setCvcPassou] = useState(0);
+
+    function handlePlanoChange(event) {
+        setPlano(event.target.value);
+        console.log(plano);
+    }
+
+    function handleNumeroCartaoChange(event) {
+        if (event.target.value.length != 20) {
+            setNumeroCartaoPassou(0);
+        } else {
+            setNumeroCartaoPassou(1);
+        }
+        setNumeroCartao(event.target.value);
+    }
+
+    function handleCvcChange(event) {
+        if (event.target.value.length != 3) {
+            setCvcPassou(0);
+        } else {
+            setCvcPassou(1);
+        }
+        setCvc(event.target.value);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -52,8 +79,8 @@ export default function Cadastro() {
     return (
         <div className="container text-center">
             <div className="row">
-                <div className="form-custom">
-                    <form onSubmit={handleSubmit}>
+                <div className="container1">
+                    <form className='form' onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label>
                                 Nome:
@@ -78,7 +105,20 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label>
                                 Plano:
-                                <input type="text" className="form-control" value={plano} onChange={(e) => { setPlano(e.target.value) }} />
+                                <input
+                                    className="planoBotao"
+                                    type="button"
+                                    value={"Prata"}
+                                    onClick={handlePlanoChange}
+                                    style={{ backgroundColor: plano == "Prata" ? "blue" : "black" }}
+                                />
+                                <input
+                                    className="planoBotao"
+                                    type="button"
+                                    value={"Ouro"}
+                                    onClick={handlePlanoChange}
+                                    style={{ backgroundColor: plano == "Ouro" ? "blue" : "black" }}
+                                />
                             </label>
                         </div>
                         <br />
@@ -92,15 +132,27 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label>
                                 Número do cartão:
-                                <input type="text" className="form-control" value={numeroCartao} onChange={(e) => { setNumeroCartao(e.target.value) }} />
+                                <input
+                                    type="text"
+                                    value={numeroCartao}
+                                    onChange={handleNumeroCartaoChange}
+                                />
                             </label>
+                            {numeroCartaoPassou == 0 && (
+                                <p className="warning">*O número do cartão deve ter 20 dígitos</p>
+                            )}
                         </div>
                         <br />
                         <div className="form-group">
                             <label>
                                 cvc:
-                                <input type="text" className="form-control" value={cvc} onChange={(e) => { setCvc(e.target.value) }} />
+                                <input type="password" value={cvc} onChange={handleCvcChange} />
                             </label>
+                            {cvcPassou == 0 && (
+                                <p className="warning">
+                                    *O número do CVC deve ter apenas 3 dígitos
+                                </p>
+                            )}
                         </div>
                         <br />
                         <div className="form-group">
