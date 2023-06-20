@@ -44,10 +44,10 @@ export default function Header() {
         <div className="col-md-3 text-end">
           {location.pathname != "/login" && (
             <a href={`/login`}>
-          <button type="button" className="btn btn-outline-primary me-2">
-            Login
-          </button>
-          </a>
+              <button type="button" className="btn btn-outline-primary me-2">
+                Login
+              </button>
+            </a>
           )}
           {location.pathname != "/cadastro" && (
             <a href={`/cliente`}>
