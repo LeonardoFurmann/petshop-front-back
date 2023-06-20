@@ -1,44 +1,64 @@
 .cadastro {
-    font-size: 28px;
-    text-align: center;
-  }
-  
-  .form {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .container1 {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 30%;
-  }
-  
-  input {
-    margin: 5px;
-  }
-  
-  .submit {
-    width: 50%;
-    margin: 25px auto auto auto;
-  }
-  
-  .warning {
-    margin: 0;
-    font-size: 14px;
-    color: rgb(182, 57, 57);
-  }
-  
-  .planoBotao {
-    background-color: rgb(74, 127, 224);
-    color: white;
-    width: 100px;
-    border-radius: 15px;
-    font-size: 20px;
-    border: 0;
-  }
-  
-  .selected {
-    background-color: rgb(145, 184, 255);
-  }
+  font-size: 28px;
+  text-align: center;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.container1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 30%;
+}
+
+.container-master {
+  width: 80%;
+  margin: auto;
+}
+
+input {
+  margin: 5px;
+}
+
+.submit {
+  width: 50%;
+  margin: 25px auto auto auto;
+}
+
+.warning {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(182, 57, 57);
+}
+
+.planoBotao {
+  background-color: rgb(74, 127, 224);
+  color: white;
+  width: 100px;
+  border-radius: 15px;
+  font-size: 20px;
+  border: 0;
+  margin: 0 5px 0 5px;
+}
+
+.selected {
+  background-color: rgb(145, 184, 255);
+}
+
+.botao {
+  margin: 50px auto;
+  width: 50%;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin: 10px auto;
+  object-fit: cover;
+}
