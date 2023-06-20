@@ -1,24 +1,30 @@
 .linha {
-    display: block;
-    width: 75%;
-    margin: auto;
-    overflow: auto;
-    white-space: nowrap;
-  }
-  
-  .coluna {
-    display: inline-block;
-    width: 25%;
-  }
-  
-  .filtrarPor {
-    margin-left: 50%;
-    margin-bottom: 25px;
-  }
-  
-  .search {
-    margin: 0 auto 20px auto;
-  }
-  .search > input {
-    width: 50%;
-  }
+  display: block;
+  width: 75%;
+  margin: auto;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.coluna {
+  display: inline-block;
+  width: 25%;
+  margin: 0 0.5% 0 0.5%;
+}
+
+.filtrarPor {
+  margin-left: 50%;
+  margin-bottom: 25px;
+}
+
+.search {
+  margin: 0 auto 20px auto;
+}
+.search > input {
+  width: 50%;
+}
+
+.card-title {
+  overflow-wrap: break-word;
+  font-size: 1rem;
+}
