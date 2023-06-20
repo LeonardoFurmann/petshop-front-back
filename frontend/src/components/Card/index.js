@@ -9,7 +9,7 @@ function Assitido({ javisto }) {
   return <p className="item">Não assistido</p>;
 }
 
-export default function Card({searchValue}) {
+export default function Card({ searchValue }) {
   const [filmes, setFilmes] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
@@ -24,16 +24,15 @@ export default function Card({searchValue}) {
     setFilteredMovies(
       filmes.filter((filme) => {
         return filme.titulo.toLowerCase().includes(searchValue.toLowerCase());
-         })
-    )
-
+      })
+    );
   }, [searchValue]);
 
   useEffect(() => {
-    if(filteredMovies.length == 0){
+    if (filteredMovies.length == 0) {
       setFilteredMovies(filmes);
     }
-  }, [filmes])
+  }, [filmes]);
 
   if (!filmes) {
     return <p>Carregando...</p>;
@@ -65,7 +64,6 @@ export default function Card({searchValue}) {
     console.log(filmes);
   }
 
-
   return (
     <div className="container text-center">
       <div className="filtrarPor">
@@ -76,9 +74,10 @@ export default function Card({searchValue}) {
           <option value="nota">Nota</option>
         </select>
       </div>
-      <div className="row">
+      <h1>Categoria</h1>
+      <div className="linha">
         {filteredMovies.map((filme, i) => (
-          <div className="col" key={i}>
+          <div className="coluna" key={i}>
             <div className="card">
               <img
                 src={filme.poster}
