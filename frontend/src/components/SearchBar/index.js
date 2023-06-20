@@ -18,6 +18,7 @@ export default function SearchBar() {
             placeholder="Pesquisar..."
             onChange={handleSearchValue}
             />
+            <h1>Categoria</h1>
         </div>
 
         <Card searchValue={busca}/>

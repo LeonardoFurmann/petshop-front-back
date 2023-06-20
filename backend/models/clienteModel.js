@@ -1,13 +1,21 @@
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
 
+const planoEnum = {
+    Prata: 'Prata',
+    Ouro: 'Ouro'
+}
+
 const clienteSchema = new mongoose.Schema({
     codigo: Number,
     nome: {
         type: String,
-        require: true
+        required: true
     },
-    telefone: String,
+    telefone: {
+        type: String,
+        required: true
+    },
     endereco: {
         type: String,
         required: true,
@@ -19,10 +27,22 @@ const clienteSchema = new mongoose.Schema({
         required: true,
         lowercase: true
     },
-    nomeCartao: String,
-    numeroCartao: String,
-    cvc: Number,
-    plano: String,
+    nomeCartao: {
+        type: String,
+        required: true
+    },
+    numeroCartao: {
+        type: String,
+        required: true
+    },
+    cvc: {
+        type: Number,
+        required: true
+    },
+    plano: {
+        type: Enum[planoEnum],
+        required: true
+    },
     senha: {
         type: String,
         required: true,
