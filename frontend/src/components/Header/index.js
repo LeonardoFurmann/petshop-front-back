@@ -29,8 +29,8 @@ export default function Header() {
           </li>
           <li>
             {" "}
-            <Link className="nav-link" to="/planos">
-              Planos
+            <Link className="nav-link" to="/pedido">
+              Pedido
             </Link>{" "}
           </li>
           <li>
