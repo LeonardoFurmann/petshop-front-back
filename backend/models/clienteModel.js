@@ -47,6 +47,10 @@ const clienteSchema = new mongoose.Schema({
     type: String,
     select: false,
   },
+  imagem: {
+    type: String,
+    required: true,
+  },
 });
 
 clienteSchema.pre("save", async function (next) {

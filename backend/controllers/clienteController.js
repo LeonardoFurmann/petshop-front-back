@@ -3,13 +3,18 @@ const auth = require('../auth/auth');
 
 class ClienteController {
     async salvar(req, res) {
-        const cliente = req.body;
+        const cliente = JSON.parse(req.body);
         const max = await clienteModel.findOne({}).sort({ codigo: -1 });
         cliente.codigo = max == null ? 1 : max.codigo + 1;
 
         if (await clienteModel.findOne({ 'email': cliente.email })) {
             res.status(400).send({ error: 'Cliente já cadastrado!' });
         }
+
+        console.log(req.file);
+        if (req.file) {
+            cliente.imagem = req.file.path; // Salvar o caminho do arquivo no  atributo 'imagem'
+          }
 
         const resultado = await clienteModel.create(cliente);
         auth.incluirToken(resultado);
