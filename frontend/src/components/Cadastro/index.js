@@ -6,6 +6,7 @@ export default function Cadastro() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [endereco, setEndereco] = useState("");
+  const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [nomeCartao, setNomeCartao] = useState("");
@@ -45,6 +46,7 @@ export default function Cadastro() {
       telefone: telefone,
       email: email,
       endereco: endereco,
+      cpf: cpf,
       senha: senha,
       nomeCartao: nomeCartao,
       numeroCartao: numeroCartao,
@@ -67,6 +69,7 @@ export default function Cadastro() {
         setNome("");
         setTelefone("");
         setEndereco("");
+        setCpf("");
         setEmail("");
         setSenha("");
         setNomeCartao("");
@@ -125,10 +128,25 @@ export default function Cadastro() {
               <br />
               <div className="form-group">
                 <label>
+                  CPF:
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={cpf}
+                    onChange={(e) => {
+                      setCpf(e.target.value);
+                    }}
+                  />
+                </label>
+              </div>
+              <br />
+              <div className="form-group">
+                <label>
                   Imagem:
                   <input
                     type="file"
                     accept="image/*"
+                    value={imagem}
                     className="form-control"
                     onChange={handleSelectImg}
                   />
