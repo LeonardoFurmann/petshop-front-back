@@ -13,6 +13,11 @@ const pedidoItems = {
             "nome": "Item 2",
             "qtde": 1,
             "preco": 50
+        },
+        {
+            "nome": "Item 3",
+            "qtde": 4,
+            "preco": 50
         }
     ]
 }

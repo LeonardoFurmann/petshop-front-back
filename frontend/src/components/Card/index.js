@@ -2,66 +2,59 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./card.css";
 
-function Assitido({ javisto }) {
-  if (javisto) {
-    return <p>Assistido ✔</p>;
-  }
-  return <p className="item">Não assistido</p>;
-}
-
 export default function Card({ searchValue }) {
-  const [filmes, setFilmes] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+  const [filteredProdutos, setFilteredProdutos] = useState([]);
 
   useEffect(() => {
-    fetch("https://my-json-server.typicode.com/marycamila184/movies/movies")
+    fetch("https://my-json-server.typicode.com/lvolks/demo/produtos")
       .then((response) => response.json())
-      .then((data) => setFilmes(data))
+      .then((data) => setProdutos(data))
       .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    setFilteredMovies(
-      filmes.filter((filme) => {
-        return filme.titulo.toLowerCase().includes(searchValue.toLowerCase());
+    setFilteredProdutos(
+      produtos.filter((produto) => {
+        return produto.nome.toLowerCase().includes(searchValue.toLowerCase());
       })
     );
   }, [searchValue]);
 
   useEffect(() => {
-    if (filteredMovies.length == 0) {
-      setFilteredMovies(filmes);
+    if (filteredProdutos.length == 0) {
+      setFilteredProdutos(produtos);
     }
-  }, [filmes]);
+  }, [produtos]);
 
-  if (!filmes) {
+  if (!produtos) {
     return <p>Carregando...</p>;
   }
 
   function handleFiltroChange(event) {
-    console.log(filmes);
+    console.log(produtos);
     console.log(event.target.value);
-    const ordenado = [...filteredMovies];
-    if (event.target.value == "ano") {
-      setFilteredMovies(
+    const ordenado = [...filteredProdutos];
+    if (event.target.value == "preçoMaior") {
+      setFilteredProdutos(
         ordenado.sort(function (a, b) {
-          return a.ano - b.ano;
+          return b.preço - a.preço;
         })
       );
-    } else if (event.target.value == "titulo") {
-      setFilteredMovies(
+    } else if (event.target.value == "nome") {
+      setFilteredProdutos(
         ordenado.sort(function (a, b) {
-          return a.titulo.localeCompare(b.titulo);
+          return a.nome.localeCompare(b.nome);
         })
       );
-    } else if (event.target.value == "nota") {
-      setFilteredMovies(
+    } else if (event.target.value == "preçoMenor") {
+      setFilteredProdutos(
         ordenado.sort(function (a, b) {
-          return a.nota - b.nota;
+          return a.preço - b.preço;
         })
       );
     }
-    console.log(filmes);
+    console.log(produtos);
   }
 
   return (
@@ -69,30 +62,39 @@ export default function Card({ searchValue }) {
       <div className="filtrarPor">
         <label>Filtrar por:</label>
         <select name="filtro" id="filtro" onChange={handleFiltroChange}>
-          <option value="titulo">Título</option>
-          <option value="ano">Ano</option>
-          <option value="nota">Nota</option>
+          <option value="preçoMaior">Preço(Maior pro menor)</option>
+          <option value="preçoMenor">Preço(Menor pro maior)</option>
+          <option value="nome">Nome</option>
         </select>
       </div>
       <h1>Categoria</h1>
       <div className="linha">
-        {filteredMovies.map((filme, i) => (
+        {filteredProdutos.map((produto, i) => (
           <div className="coluna" key={i}>
             <div className="card">
               <img
-                src={filme.poster}
-                alt={filme.titulo}
+                src={produto.imagem}
+                alt={produto.nome}
                 className="card-img-top"
               />
               <div className="card-body">
                 <h5 className="card-title">
-                  {filme.titulo} ({filme.ano}){" "}
+                  {produto.nome}
                 </h5>
-                <p>Sinopse</p>
-                <p className="card-text">{filme.descricao}</p>
-                <p>{filme.nota}</p>
-                <Assitido javisto={filme.assistido} />
-                <a href={`/detalhes/${filme.titulo}`}>
+                <p>
+                  Categoria: {produto.categoria}
+                </p>
+                <p>
+                  Preço: {produto.preço}R$
+                </p>
+                <p>
+                  Descrição: {produto.descrição}
+                </p>
+                <p>
+                  Para: {produto.animal}
+                </p>
+                <p className="card-text">{produto.descricao}</p>
+                <a href={`/detalhes/${produto.id}`}>
                   <div className="btn btn-primary">Detalhes</div>
                 </a>
               </div>

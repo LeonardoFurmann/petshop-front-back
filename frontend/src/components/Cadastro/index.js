@@ -59,7 +59,7 @@ export default function Cadastro() {
     const formData = new FormData();
     formData.append("cliente", cliente);
     formData.append("imagem", selectedImg); 
-  
+
     api
     .post("/clientes", formData, {
       headers: {
@@ -78,6 +78,7 @@ export default function Cadastro() {
         setNome("");
         setTelefone("");
         setEndereco("");
+        setCpf("");
         setEmail("");
         setSenha("");
         setCpf("");
