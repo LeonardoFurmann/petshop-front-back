@@ -5,11 +5,11 @@ import "./detalhes.css";
 export default function Detalhes() {
     const [produto, setProduto] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { id} = useParams();
+    const { codigo } = useParams();
 
     useEffect(() => {
 
-        fetch(`https://my-json-server.typicode.com/lvolks/demo/produtos/${id}`)
+        fetch(`http://localhost:3001/produtos/${codigo}`)
             .then(response => response.json())          
             .then(data => {
                 setProduto(data);
