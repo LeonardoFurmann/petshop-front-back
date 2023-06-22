@@ -146,7 +146,6 @@ export default function Cadastro() {
                   <input
                     type="file"
                     accept="image/*"
-                    value={imagem}
                     className="form-control"
                     onChange={handleSelectImg}
                   />
