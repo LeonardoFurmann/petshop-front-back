@@ -1,14 +1,26 @@
 const clienteModel = require('../models/clienteModel');
 const auth = require('../auth/auth');
+const multer = require('multer');
 
 class ClienteController {
     async salvar(req, res) {
-        const cliente = req.body;
+        let cliente;
+
+        if (req.is("multipart/form-data")) {
+            cliente = JSON.parse(req.body.cliente);
+        } else if (req.is("application/json")) {
+            cliente = req.body;
+        }
         const max = await clienteModel.findOne({}).sort({ codigo: -1 });
         cliente.codigo = max == null ? 1 : max.codigo + 1;
 
         if (await clienteModel.findOne({ 'email': cliente.email })) {
             res.status(400).send({ error: 'Cliente já cadastrado!' });
+        }
+
+        //        console.log(req.file.path);
+        if (req.file) {
+            cliente.imagem = req.file.path; // Salvar o caminho do arquivo no  atributo 'imagem'
         }
 
         const resultado = await clienteModel.create(cliente);

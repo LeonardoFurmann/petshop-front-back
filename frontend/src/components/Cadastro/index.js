@@ -37,33 +37,42 @@ export default function Cadastro() {
   function handleSelectImg(event) {
     const file = event.target.files[0];
     setSelectedImg(URL.createObjectURL(file));
+    console.log('imagem: ', file);
   }
+
+  const cliente= JSON.stringify({
+    nome: nome,
+    telefone: telefone,
+    endereco: endereco,
+    cpf: cpf,
+    email: email,
+    senha: senha,
+    nomeCartao: nomeCartao,
+    numeroCartao: numeroCartao,
+    cvc: cvc,
+    imagem: selectedImg
+  });
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const bodyParam = {
-      nome: nome,
-      telefone: telefone,
-      email: email,
-      endereco: endereco,
-      cpf: cpf,
-      senha: senha,
-      nomeCartao: nomeCartao,
-      numeroCartao: numeroCartao,
-      cvc: cvc,
-    };
+  
+    const formData = new FormData();
+    formData.append("cliente", cliente);
+    formData.append("imagem", selectedImg); 
 
     api
-      .post("/clientes", bodyParam)
+    .post("/clientes", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", 
+      },
+    })
       .then((response) => {
         console.log(response.data);
-        alert(
-          " O usuario " + response.data.codigo + " foi criado com sucesso!"
-        );
+        alert("O usuário " + response.data.codigo + " foi criado com sucesso!");
       })
       .catch((err) => {
         console.error(err);
-        alert(" Ocorreu um erro! Veja no console ..");
+        alert("Ocorreu um erro! Veja no console ..");
       })
       .finally(() => {
         setNome("");
@@ -72,11 +81,14 @@ export default function Cadastro() {
         setCpf("");
         setEmail("");
         setSenha("");
+        setCpf("");
         setNomeCartao("");
         setNumeroCartao("");
         setCvc("");
+        setSelectedImg("");
       });
   };
+  
 
   return (
     <div className="container text-center">
