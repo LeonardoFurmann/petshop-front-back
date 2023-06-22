@@ -16,7 +16,7 @@ export default function RoutesConfig() {
       <Route path="pedido" element={<Pedido />} />
       <Route path="*" element={<h1> 404 - Página Não Encontrada!</h1>} />
       <Route path="sobre" element={<Sobre />} />
-      <Route path="detalhes/:id" element={<Detalhes />} />
+      <Route path="detalhes/:codigo" element={<Detalhes />} />
     </Routes>
   );
 }
