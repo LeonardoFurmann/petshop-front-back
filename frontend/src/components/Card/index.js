@@ -5,14 +5,16 @@ import "./card.css";
 export default function Card({ searchValue }) {
   const [produtos, setProdutos] = useState([]);
   const [filteredProdutos, setFilteredProdutos] = useState([]);
+ 
 
   useEffect(() => {
-    fetch("https://my-json-server.typicode.com/lvolks/demo/produtos")
+    fetch("http://localhost:3001/produtos")
       .then((response) => response.json())
       .then((data) => setProdutos(data))
       .catch((err) => console.error(err));
   }, []);
 
+  
   useEffect(() => {
     setFilteredProdutos(
       produtos.filter((produto) => {
@@ -67,7 +69,6 @@ export default function Card({ searchValue }) {
           <option value="nome">Nome</option>
         </select>
       </div>
-      <h1>Categoria</h1>
       <div className="linha">
         {filteredProdutos.map((produto, i) => (
           <div className="coluna" key={i}>
@@ -105,3 +106,4 @@ export default function Card({ searchValue }) {
     </div>
   );
 }
+
