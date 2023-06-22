@@ -99,7 +99,7 @@ export default function Card({ searchValue, categoria }) {
                   Para: {produto.animal}
                 </p>
                 <p className="card-text">{produto.descricao}</p>
-                <a href={`/detalhes/${produto.codigo}`}>
+                  <a href={`/detalhes/${produto.codigo}`}>
                   <div className="btn btn-primary">Detalhes</div>
                 </a>
               </div>
