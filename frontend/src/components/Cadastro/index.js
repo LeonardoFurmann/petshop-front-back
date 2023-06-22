@@ -6,6 +6,7 @@ export default function Cadastro() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [endereco, setEndereco] = useState("");
+  const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [nomeCartao, setNomeCartao] = useState("");
@@ -38,23 +39,33 @@ export default function Cadastro() {
     setSelectedImg(URL.createObjectURL(file));
     console.log('imagem: ', file);
   }
+
+  const cliente= JSON.stringify({
+    nome: nome,
+    telefone: telefone,
+    endereco: endereco,
+    cpf: cpf,
+    email: email,
+    senha: senha,
+    nomeCartao: nomeCartao,
+    numeroCartao: numeroCartao,
+    cvc: cvc,
+    imagem: selectedImg
+  });
   
   const handleSubmit = (event) => {
     event.preventDefault();
   
     const formData = new FormData();
-    formData.append("nome", nome);
-    formData.append("telefone", telefone);
-    formData.append("endereco", endereco);
-    formData.append("email", email);
-    formData.append("senha", senha);
-    formData.append("nomeCartao", nomeCartao);
-    formData.append("numeroCartao", numeroCartao);
-    formData.append("cvc", cvc);
-    formData.append("imagem", selectedImg); // Adicione a imagem ao FormData
+    formData.append("cliente", cliente);
+    formData.append("imagem", selectedImg); 
   
     api
-      .post("/clientes", formData)
+    .post("/clientes", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", 
+      },
+    })
       .then((response) => {
         console.log(response.data);
         alert("O usuário " + response.data.codigo + " foi criado com sucesso!");
@@ -69,9 +80,11 @@ export default function Cadastro() {
         setEndereco("");
         setEmail("");
         setSenha("");
+        setCpf("");
         setNomeCartao("");
         setNumeroCartao("");
         setCvc("");
+        setSelectedImg("");
       });
   };
   
@@ -119,6 +132,20 @@ export default function Cadastro() {
                     value={endereco}
                     onChange={(e) => {
                       setEndereco(e.target.value);
+                    }}
+                  />
+                </label>
+              </div>
+              <br />
+              <div className="form-group">
+                <label>
+                  CPF:
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={cpf}
+                    onChange={(e) => {
+                      setCpf(e.target.value);
                     }}
                   />
                 </label>

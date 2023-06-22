@@ -16,6 +16,10 @@ const clienteSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
+  cpf: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     unique: true,
