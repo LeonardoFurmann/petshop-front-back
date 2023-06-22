@@ -31,10 +31,13 @@ export default function SearchBar() {
             </div>
 
             <div className="container text-center">
-            {categorias.map((categoria, i) => ( 
-            <><h1>{categoria.nome}</h1><Card searchValue={busca} /></>
-            ))}
-             </div>
+                {categorias.map((categoria) => (
+                    <div key={categoria.id}>
+                        <h1>{categoria.nome}</h1>
+                        <Card searchValue={busca} categoria={categoria.nome} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

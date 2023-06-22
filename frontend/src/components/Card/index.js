@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./card.css";
 
-export default function Card({ searchValue }) {
+export default function Card({ searchValue, categoria }) {
   const [produtos, setProdutos] = useState([]);
   const [filteredProdutos, setFilteredProdutos] = useState([]);
  
@@ -16,12 +16,16 @@ export default function Card({ searchValue }) {
 
   
   useEffect(() => {
-    setFilteredProdutos(
-      produtos.filter((produto) => {
-        return produto.nome.toLowerCase().includes(searchValue.toLowerCase());
-      })
-    );
-  }, [searchValue]);
+    const filtered = produtos.filter((produto) => {
+      const lowerCaseSearchValue = typeof searchValue === 'string' ? searchValue.toLowerCase() : '';
+      return (
+        produto.categoria === categoria &&
+        (typeof searchValue !== 'string' || produto.nome.toLowerCase().includes(lowerCaseSearchValue))
+      );
+    });
+    setFilteredProdutos(filtered);
+  }, [produtos, categoria, searchValue]);
+  
 
   useEffect(() => {
     if (filteredProdutos.length == 0) {
