@@ -92,7 +92,7 @@ export default function Cadastro() {
 
   return (
     <div className="container text-center">
-      <div className="linha">
+      <div>
         <form className="form container-master" onSubmit={handleSubmit}>
           <div className="container1">
             <div>

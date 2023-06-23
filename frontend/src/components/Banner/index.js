@@ -5,9 +5,8 @@ export default function Banner(){
 
     const bannerImgPath = process.env.PUBLIC_URL + '/banner-img.jpg';
     const logoImgPath = process.env.PUBLIC_URL + '/the-petshop-logo-transparent.png';
-    const acessorios = document.getElementsByClassName("acessorios")[0];
-    const brinquedos = document.getElementsByClassName("brinquedos")[0];
-    const racoes = document.getElementsByClassName("racoes")[0];
+
+
 
     return(
         <div>
