@@ -61,4 +61,5 @@ input {
   border-radius: 100%;
   margin: 10px auto;
   object-fit: cover;
+  border: 1px solid black;
 }

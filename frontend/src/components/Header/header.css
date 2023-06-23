@@ -1,0 +1,41 @@
+.header-options-container{
+    background-color: #FFF028;
+    display: grid;
+    grid-template-columns: 10% 75% auto auto auto;
+    padding: 10px 1% 10px 1%;
+
+}
+
+.header-options-container > div{
+    display: inline-block;
+    text-align: right;
+    padding:0;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.carrinho{
+    margin-top: 5px;
+    width: 2%;
+}
+
+.logo-icon{
+    width: 100%;
+    object-fit: cover;
+    height: 50px;
+    z-index: 2;
+}
+
+.sobre{
+    margin-top: 8px !important;
+}
+
+.login, .registro{
+    color: black !important;
+    border: 1px solid black !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
