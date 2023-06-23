@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Comments from '../components/Comments';
 import "./detalhes.css";
 
 export default function Detalhes() {
@@ -26,8 +27,13 @@ export default function Detalhes() {
     const novoCarrinho = [...carrinhoAtual, itemCarrinho];
 
     localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
-
-    navigate("/pedido");
+    if(quantidade==1){
+    window.alert("Item adicionado ao carrinho com sucesso!")
+    } 
+    else{
+      window.alert("Itens adicinados ao carrinho com sucesso!")
+    }
+    navigate("/");
   };
 
   useEffect(() => {
@@ -78,6 +84,7 @@ export default function Detalhes() {
                   </div>
                 </div>
               </div>
+              {Object.keys(produto).length !== 0 && <Comments produto={codigo} />}
             </div>
           )}
         </>

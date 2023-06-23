@@ -5,7 +5,7 @@ import "./card.css";
 export default function Card({ searchValue, categoria }) {
   const [produtos, setProdutos] = useState([]);
   const [filteredProdutos, setFilteredProdutos] = useState([]);
- 
+
 
   useEffect(() => {
     fetch("http://localhost:3001/produtos")
@@ -86,12 +86,12 @@ export default function Card({ searchValue, categoria }) {
                 <h5 className="card-title">
                   {produto.nome}
                 </h5>
-                <p>
+                <p class="product-title">
                   Categoria: {produto.categoria}
                 </p>
-                <p>
+                <span class="product-price">
                   Preço: {produto.preço}R$
-                </p>
+                </span>
                 <p>
                   Descrição: {produto.descrição}
                 </p>

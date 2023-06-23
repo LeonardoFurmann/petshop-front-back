@@ -21,6 +21,9 @@ export default function Autentica() {
                 console.log(response.data)
                 alert(" Token gerado para o usuario " + response.data.nome)
                 localStorage.setItem("token", response.data.token);
+                setTimeout(() => {
+                    localStorage.removeItem("token"); // Remover o token após 2 minutos
+                  }, 2 * 60 * 1000); // Tempo em milissegundos (2 minutos = 2 * 60 * 1000)
                 navigate("/");
             })
             .catch((err) => {

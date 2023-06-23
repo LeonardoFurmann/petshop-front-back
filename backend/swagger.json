@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-      "title": "Catálogo de Filmes",
-      "description": "API Catálogo de Filmes",
+      "title": "Ecommerce Pet Shop",
+      "description": "Um Ecommerce com tema Pet Shop",
       "version": "1.0"
     },
     "host": "localhost:3001",
@@ -11,10 +11,172 @@
       "http"
     ],
     "paths": {
-      "/movie": {
+      "/categorias": {
         "get": {
-          "description": "Retorna Filmes.",
-          "operationId": "GET - Filmes",
+          "description": "Retorna Categorias.",
+          "operationId": "GET - Categorias",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/categorias": {
+        "post": {
+          "description": "Cadastro de categoria.",
+          "operationId": "POST - Categorias",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/categorias/:codigo": {
+        "get": {
+          "description": "Retorna categoria específica.",
+          "operationId": "GET - Categorias",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/categorias/:codigo": {
+        "put": {
+          "description": "Atualiza categoria específica",
+          "operationId": "PUT - Categorias",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/categorias/:codigo": {
+        "delete": {
+          "description": "Deleta categoria específica",
+          "operationId": "DELETE - Categorias",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/clientes": {
+        "get": {
+          "description": "Retorna Clientes.",
+          "operationId": "GET - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/clientes": {
+        "post": {
+          "description": "Cadastro de Cliente.",
+          "operationId": "POST - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/clientes/:codigo": {
+        "get": {
+          "description": "Retorna cliente específico.",
+          "operationId": "GET - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/clientes/:codigo": {
+        "put": {
+          "description": "Atualiza cliente específico",
+          "operationId": "PUT - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/clientes/:codigo": {
+        "delete": {
+          "description": "Deleta cliente específico",
+          "operationId": "DELETE - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/login": {
+        "post": {
+          "description": "Login de cliente",
+          "operationId": "POST - Login",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/pedidos": {
+        "get": {
+          "description": "Retorna Pedidos.",
+          "operationId": "GET - pedidos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/pedidos": {
+        "post": {
+          "description": "Cadastro de Pedido.",
+          "operationId": "POST - Pedidos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/pedidos/:codigo": {
+        "get": {
+          "description": "Retorna pedido específico.",
+          "operationId": "GET - Pedidos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/produtos": {
+        "get": {
+          "description": "Retorna Clientes.",
+          "operationId": "GET - Clientes",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/produtos": {
+        "post": {
+          "description": "Cadastro de produtos.",
+          "operationId": "POST - Produtos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/produtos/:codigo": {
+        "get": {
+          "description": "Retorna produtos específico.",
+          "operationId": "GET - Produtos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/produtos/:codigo": {
+        "put": {
+          "description": "Atualiza produto específico",
+          "operationId": "PUT - Produtos",
+          "parameters": [
+          ],
+          "responses": {}
+        }
+      },
+      "/produtos/:codigo": {
+        "delete": {
+          "description": "Deleta produto específico",
+          "operationId": "DELETE - Produtos",
           "parameters": [
           ],
           "responses": {}
