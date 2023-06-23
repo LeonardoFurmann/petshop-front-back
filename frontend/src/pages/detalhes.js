@@ -49,7 +49,7 @@ export default function Detalhes() {
 
 
   return (
-    <div className="container">
+    <div className="container detalhes-container">
       {loading ? (
         <h1 className="display-6">Carregando...</h1>
       ) : (
