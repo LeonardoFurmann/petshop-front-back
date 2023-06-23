@@ -27,12 +27,13 @@ export default function SearchBar() {
                     type="text"
                     placeholder="Pesquisar..."
                     onChange={handleSearchValue}
+                    className="search-bar-input"
                 />
             </div>
 
             <div className="container text-center">
                 {categorias.map((categoria) => (
-                    <div key={categoria.id}>
+                    <div key={categoria.id} className={categoria.nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}>
                         <h1>{categoria.nome}</h1>
                         <Card searchValue={busca} categoria={categoria.nome} />
                     </div>

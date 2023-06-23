@@ -3,6 +3,17 @@
   margin: 20px auto;
 }
 
-input {
+
+.search-bar-input{
   width: 50%;
+  height: 5vh;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  font-size: 1.2rem;
+}
+
+.acessorios h1 .brinquedos h1 .racoes h1{
+  display: inline-block !important;
+  font-weight: 200 !important;
 }

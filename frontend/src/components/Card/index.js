@@ -67,7 +67,7 @@ export default function Card({ searchValue, categoria }) {
     <div className="container text-center">
       <div className="filtrarPor">
         <label>Filtrar por:</label>
-        <select name="filtro" id="filtro" onChange={handleFiltroChange}>
+        <select name="filtro" className="filtro" onChange={handleFiltroChange}>
           <option value="preçoMaior">Preço(Maior pro menor)</option>
           <option value="preçoMenor">Preço(Menor pro maior)</option>
           <option value="nome">Nome</option>
@@ -80,23 +80,23 @@ export default function Card({ searchValue, categoria }) {
               <img
                 src={produto.imagem}
                 alt={produto.nome}
-                className="card-img-top"
+                className="card-img-1"
               />
               <div className="card-body">
                 <h5 className="card-title">
                   {produto.nome}
                 </h5>
-                <p>
-                  Categoria: {produto.categoria}
+                <p className="categoria">
+                  {produto.categoria}
                 </p>
-                <p>
-                  Preço: {produto.preço}R$
+                <p className="preco">
+                R${produto.preço}
                 </p>
-                <p>
-                  Descrição: {produto.descrição}
+                <p className="descricao">
+                  {produto.descrição}
                 </p>
-                <p>
-                  Para: {produto.animal}
+                <p className="animal">
+                  {produto.animal}
                 </p>
                 <p className="card-text">{produto.descricao}</p>
                   <a href={`/detalhes/${produto.codigo}`}>

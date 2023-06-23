@@ -1,0 +1,50 @@
+.banner{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.logo{
+    object-fit: cover;
+    width: 100%;
+    margin: 10px 0 30px 0;
+    padding: 0 25% 0 25%;
+    height: 20vh;
+    background-color: white;
+}
+
+.banner-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.item{
+    text-align: center;
+    border-left: 1px solid black;
+    height: 50px;
+    padding: 10px;
+    background-color: white;
+}
+
+.slogan{
+    position:absolute;
+    right: 1%;
+    top: 13vh;
+    display: inline-block;
+    width: 50%;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    justify-content: right !important;
+    color: white;
+}
+
+.slogan-1{
+    text-align: right !important;
+    font-weight: 900 !important;
+    font-size: 5rem;
+}
+
+.slogan-2{
+    text-align: right !important;
+    font-size: 3rem;
+}
