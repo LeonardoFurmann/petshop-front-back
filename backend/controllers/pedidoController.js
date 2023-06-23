@@ -3,12 +3,12 @@ const clienteModel = require('../models/clienteModel');
 
 class PedidoController {
     async salvar(req, res) {
-        const max = await pedidoModel.findOne({}).sort({ codigo: -1 });
         const pedido = req.body;
+        const max = await pedidoModel.findOne({}).sort({ codigo: -1 });
         pedido.codigo = max == null ? 1 : max.codigo + 1;
 
-        const cliente = await clienteModel.findOne({ codigo: pedido.cliente.codigo });
-        pedido.cliente = cliente._id;
+        const cliente = await clienteModel.findOne({ codigo: pedido.cliente_id });
+        pedido.cliente = cliente.nome;
 
         const resultado = await pedidoModel.create(pedido);
         res.status(201).json(resultado);
