@@ -95,7 +95,7 @@ export default function Card({ searchValue, categoria }) {
                 <p>
                   Descrição: {produto.descrição}
                 </p>
-                <p className="animal">
+                <p>
                   {produto.animal}
                 </p>
                 <p className="card-text">{produto.descricao}</p>
