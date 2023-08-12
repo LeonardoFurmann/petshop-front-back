@@ -93,7 +93,9 @@ export default function Card({ searchValue, categoria }) {
                   Preço: {produto.preço}R$
                 </span>
                 <p>
+                  <span class="descricao">
                   Descrição: {produto.descrição}
+                  </span>
                 </p>
                 <p>
                   {produto.animal}

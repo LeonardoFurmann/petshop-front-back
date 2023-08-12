@@ -12,6 +12,12 @@
     padding:0;
 }
 
+.header-icon{
+    width: 300px;
+    background-color: white;
+    border-radius: 40px;
+}
+
 a{
     text-decoration: none !important;
     color: black !important;
@@ -37,5 +43,9 @@ a{
     color: black !important;
     border: 1px solid black !important;
     background-color: rgba(255, 255, 255, 0) !important;
+}
+
+button, a{
+    margin-right: 10px;
 }
 

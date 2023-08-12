@@ -7,7 +7,7 @@ export default function Header() {
   return (
 
         <div className="header-options-container">
-           <div> 
+           <div className="header-icon"> 
             <Link to="/">
             <img className="logo-icon" src={process.env.PUBLIC_URL + '/the-petshop-logo-transparent.png'}></img>
             </Link>

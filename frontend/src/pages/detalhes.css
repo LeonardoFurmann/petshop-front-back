@@ -40,3 +40,8 @@
 .detalhes-container{
     margin-top: 100px;
 }
+
+input{
+    width: 40px;
+    margin-right: 10px;
+}
